@@ -11,8 +11,8 @@
 ## 界面预览
 
 <div align="center">
-  <img src="https://image.xxxu.me/rest/X2nKslK.png" alt="罗盘界面" width="300">
-  <img src="https://image.xxxu.me/rest/J9kKslK.png" alt="解读结果" width="300">
+  <img src="https://image.xxxu.me/rest/A9ZpslK.png" alt="罗盘界面" width="300">
+  <img src="https://image.xxxu.me/rest/egcQslK.png" alt="解读结果" width="300">
 </div>
 
 ## 主要功能
