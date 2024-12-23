@@ -11,7 +11,8 @@
 ## 界面预览
 
 <div align="center">
-  <img src="screenshots/preview.jpg" alt="小程序预览" width="300">
+  <img src="https://image.xxxu.me/rest/X2nKslK.png" alt="罗盘界面" width="300">
+  <img src="https://image.xxxu.me/rest/J9kKslK.png" alt="解读结果" width="300">
 </div>
 
 ## 主要功能
@@ -21,11 +22,6 @@
    - 太极图持续旋转动画效果
    - 转动结束后震动反馈
 
-   <div align="center">
-     <img src="images/compass.png" alt="罗盘界面" width="200">
-     <img src="images/taiji.png" alt="太极图" width="100">
-   </div>
-
 2. **卦象解读**
    - 包含完整64卦的解读内容
    - 每一卦都包含详细的：
@@ -33,10 +29,6 @@
      - 形势分析
      - 行动建议
      - 各方面详解（事业、感情、财运、健康等）
-
-   <div align="center">
-     <img src="screenshots/result.jpg" alt="解读结果" width="300">
-   </div>
 
 ## 技术特点
 
@@ -54,6 +46,82 @@
    - 高效的动画实现
    - 合理的数据结构
    - 优化的用户体验
+
+## 技术架构
+
+### 前端架构
+
+1. **基础框架**
+   - 微信小程序原生框架
+   - WXML + WXSS + JavaScript
+   - 组件化开发
+
+2. **核心功能**
+   - 罗盘动画系统
+     - CSS3 动画实现
+     - 随机角度计算
+     - 动画状态管理
+   - 数据管理系统
+     - 64卦数据存储
+     - 数据验证机制
+     - 状态管理
+   - 交互反馈系统
+     - 震动反馈
+     - 动画过渡
+     - 结果展示
+
+3. **性能优化**
+   - 按需加载
+   - 图片资源压缩
+   - 动画性能优化
+
+### 代码架构
+
+1. **目录结构**
+   ```
+   baguapan/
+   ├── pages/              # 页面文件
+   │   └── compass/       # 罗盘主页面
+   ├── utils/             # 工具函数
+   ├── images/            # 图片资源
+   └── app.*             # 全局文件
+   ```
+
+2. **模块划分**
+   - 视图层（View）
+     - 罗盘展示
+     - 结果显示
+     - 动画效果
+   - 逻辑层（Logic）
+     - 数据处理
+     - 动画控制
+     - 状态管理
+   - 数据层（Data）
+     - 卦象数据
+     - 配置信息
+
+3. **关键技术**
+   - 动画实现
+     ```css
+     .compass-wrapper {
+       transition: transform 5s cubic-bezier(0.2, 0.8, 0.3, 1);
+     }
+     ```
+   - 数据验证
+     ```javascript
+     validateGua(gua) {
+       // 数据完整性检查
+       // 字段验证
+       // 数据修复
+     }
+     ```
+   - 状态管理
+     ```javascript
+     this.setData({
+       isSpinning: true,
+       showResult: false
+     });
+     ```
 
 ## 项目结构
 
@@ -89,5 +157,92 @@
 ### v1.0.0 (2023-12-23)
 - 初始版本发布
 - 实现基本的罗盘功能
-- 完成64卦数据整理
+- 完成64卦数整理
 - 添加基础动画效果
+
+## 免责声明
+
+1. **占卜结果仅供参考**
+   - 本小程序供的八卦占卜结果仅供娱乐和参考
+   - 不应将占卜结果作为人生重大决策的唯一依据
+   - 请用户理性对待占卜结果，保持独立思考
+
+2. **用户行为责任**
+   - 用户在使用本小程序时应遵守相关法律法规
+   - 对于用户因采信占卜结果而做出的决定及其后果，本小程序不承担任何责任
+   - 用户应对自己的行为负责
+
+3. **内容版权说明**
+   - 本小程序中的卦象解读内容来源于传统易经文化
+   - 如有侵犯到任何人的合法权益，请及时联系我们进行处理
+   - 未经授权，禁止对本小程序内容进行商业用途的复制或传播
+
+4. **技术免责**
+   - 本小程序会持续进行维护和更新
+   - 由于不可抗力或技术问题导致的服务中断，开发者不承担责任
+   - 我们会尽最大努力确保服务的稳定性和可用性
+
+注意：使用本小程序即表示您已阅读并同意以上免责声明。如有异议，请立即停止使用。
+
+## 安装说明
+
+### 快速安装
+
+1. **下载项目**
+   - [点击下载打包文件](https://github.com/xxxume/baguapan/releases/tag/%E5%BE%AE%E4%BF%A1%E5%85%AB%E5%8D%A6%E7%BD%97%E7%9B%98)
+   - 解压下载的文件包
+
+2. **导入项目**
+   - 打开[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+   - 点击"导入项目"
+   - 选择解压后的项目文件夹
+   - 填入自己的小程序 AppID（可使用测试号）
+
+3. **运行预览**
+   - 点击开发者工具的"预览"
+   - 使用微信扫描预览二维码
+   - 即可在手机上体验
+
+4. **发布上传**
+   - 点击开发者工具的"上传"
+   - 填写版本号和项目备注
+   - 提交审核即可
+
+### 注意事项
+
+- 首次使用需要在[微信公众平台](https://mp.weixin.qq.com/)注册小程序账号
+- 建议使用最新版本的微信开发者工具
+- 上传前请确保 `project.config.json` 中的 appid 已更改为您自己的小程序 appid
+
+## 开源协议
+
+本项目采用 [MIT 许可证](LICENSE) 进行开源。
+
+### MIT License
+
+Copyright (c) 2024 xxxume
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+### 简要说明
+
+- 你可以自由使用、修改、分发本项目的代码
+- 你可以将本项目用于商业目的
+- 你需要在项目中包含原始许可证和版权声明
+- 作者不对使用本项目所产生的后果负责
