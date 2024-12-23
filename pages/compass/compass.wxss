@@ -1,0 +1,239 @@
+.compass-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* 标题文字样式 */
+.title-tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.title-tips text {
+  font-size: 32rpx;
+  color: #000000;
+  line-height: 2.2;
+  letter-spacing: 4rpx;
+  font-weight: 500;
+}
+
+/* 罗盘容器样式 */
+.compass-wrapper {
+  position: relative;
+  width: 600rpx;
+  height: 600rpx;
+  margin: 20rpx 0;
+  transition: transform 5s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.compass-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 太极图样式 */
+.taiji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  z-index: 2;
+  animation: taijiRotate 24s linear infinite;
+  overflow: hidden;
+}
+
+.taiji-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes taijiRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 结果容器样式 */
+.result-container {
+  margin-top: 40rpx;
+  padding: 40rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
+  width: 90%;
+  box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.08);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.result-container.show {
+  opacity: 1;
+  visibility: visible;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gua-title {
+  font-size: 44rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20rpx;
+  color: #000000;
+  text-shadow: none;
+}
+
+.gua-description {
+  font-size: 32rpx;
+  line-height: 1.8;
+  color: #333333;
+  text-align: justify;
+  padding: 0 20rpx;
+}
+
+.divination-btn {
+  margin-top: 60rpx;
+  margin-bottom: 0;
+  background: linear-gradient(135deg, #333333, #666666);
+  color: #fff;
+  padding: 28rpx 100rpx;
+  border-radius: 50rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  letter-spacing: 4rpx;
+  box-shadow: 0 8rpx 20rpx rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.divination-btn:active {
+  transform: scale(0.98) translateY(2rpx);
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.2);
+}
+
+.gua-analysis,
+.gua-advice {
+  margin-top: 30rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid rgba(139,69,19,0.1);
+}
+
+.analysis-title,
+.advice-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 16rpx;
+}
+
+.analysis-content,
+.advice-content {
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify;
+}
+
+.advice-content {
+  white-space: pre-line;
+}
+
+/* 详细解读样式 */
+.gua-details {
+  margin-top: 40rpx;
+  padding-top: 30rpx;
+  border-top: 2rpx solid rgba(0,0,0,0.1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.details-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.detail-section {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: rgba(0,0,0,0.02);
+  border-radius: 12rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 16rpx;
+}
+
+.section-subtitle {
+  font-size: 28rpx;
+  color: #666666;
+  margin: 12rpx 0;
+}
+
+.section-content {
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify;
+  margin-bottom: 16rpx;
+}
+
+/* 底部提示文字样式 */
+.bottom-tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.bottom-tips text {
+  font-size: 32rpx;
+  color: #000000;
+  line-height: 2.2;
+  letter-spacing: 4rpx;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 提示文字样式 */
+.tips-text {
+  margin-top: 30rpx;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.tip-line {
+  font-size: 32rpx;
+  color: #000000;
+  line-height: 60rpx;
+  letter-spacing: 4rpx;
+  font-weight: 500;
+} 

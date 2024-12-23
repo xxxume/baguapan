@@ -1,0 +1,85 @@
+<view class="compass-container">
+  <!-- 旋转的罗盘 -->
+  <view class="compass-wrapper {{isSpinning ? 'spinning' : ''}}" style="{{rotateStyle}}">
+    <image src="/images/compass.png" class="compass-img" />
+    <view class="taiji">
+      <image src="/images/taiji.png" class="taiji-img" />
+    </view>
+  </view>
+  
+  <button class="divination-btn" bindtap="startDivination" disabled="{{isSpinning}}">开始卜卦</button>
+
+  <!-- 提示文字，放在按钮下方 -->
+  <view class="tips-text" wx:if="{{!showResult}}">
+    <view class="tip-line">遇事不决，可问罗盘</view>
+    <view class="tip-line">罗盘不语，即随本心</view>
+  </view>
+
+  <!-- 结果容器 -->
+  <view class="result-container {{showResult ? 'show' : ''}}" wx:if="{{showResult && currentGua}}">
+    <view class="gua-title">{{currentGua.name}}</view>
+    <view class="gua-description">{{currentGua.description}}</view>
+    
+    <view class="gua-analysis">
+      <view class="analysis-title">卦象分析</view>
+      <view class="analysis-content">{{currentGua.analysis}}</view>
+    </view>
+    
+    <view class="gua-advice">
+      <view class="advice-title">卜卦建议</view>
+      <view class="advice-content">{{currentGua.advice}}</view>
+    </view>
+
+    <!-- 详细解读部分 -->
+    <view class="gua-details" wx:if="{{currentGua && currentGua.details}}">
+      <view class="details-title">详细解读</view>
+      
+      <block wx:if="{{currentGua.details.general}}">
+        <view class="detail-section">
+          <view class="section-title">总体运势</view>
+          <view class="section-content">{{currentGua.details.general}}</view>
+        </view>
+      </block>
+      
+      <block wx:if="{{currentGua.details.career && currentGua.details.career.situation && currentGua.details.career.advice}}">
+        <view class="detail-section">
+          <view class="section-title">事业运势</view>
+          <view class="section-subtitle">当前形势：</view>
+          <view class="section-content">{{currentGua.details.career.situation}}</view>
+          <view class="section-subtitle">建议对策：</view>
+          <view class="section-content">{{currentGua.details.career.advice}}</view>
+        </view>
+      </block>
+      
+      <block wx:if="{{currentGua.details.love && currentGua.details.love.situation && currentGua.details.love.advice}}">
+        <view class="detail-section">
+          <view class="section-title">感情运势</view>
+          <view class="section-subtitle">当前形势：</view>
+          <view class="section-content">{{currentGua.details.love.situation}}</view>
+          <view class="section-subtitle">建议对策：</view>
+          <view class="section-content">{{currentGua.details.love.advice}}</view>
+        </view>
+      </block>
+      
+      <block wx:if="{{currentGua.details.fortune && currentGua.details.fortune.situation && currentGua.details.fortune.advice}}">
+        <view class="detail-section">
+          <view class="section-title">财运分析</view>
+          <view class="section-subtitle">当前形势：</view>
+          <view class="section-content">{{currentGua.details.fortune.situation}}</view>
+          <view class="section-subtitle">建议对策：</view>
+          <view class="section-content">{{currentGua.details.fortune.advice}}</view>
+        </view>
+      </block>
+      
+      <block wx:if="{{currentGua.details.health && currentGua.details.health.situation && currentGua.details.health.advice}}">
+        <view class="detail-section">
+          <view class="section-title">健康提示</view>
+          <view class="section-subtitle">身体状况：</view>
+          <view class="section-content">{{currentGua.details.health.situation}}</view>
+          <view class="section-subtitle">养生建议：</view>
+          <view class="section-content">{{currentGua.details.health.advice}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view> 
